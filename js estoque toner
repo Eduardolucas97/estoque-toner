@@ -1,0 +1,102 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Carrega os produtos do LocalStorage ao abrir a página
+  carregarProdutos();
+
+  // Remove produtos com quantidade zero ao carregar a página
+  removerProdutosZerados();
+});
+
+document
+  .getElementById("form-produto")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Obtém os valores do formulário
+    const nome = document.getElementById("nome").value;
+    const quantidade = parseInt(
+      document.getElementById("quantidade").value,
+      10
+    );
+    const codigos = document.getElementById("codigos").value;
+    const localidade = document.getElementById("localidade").value;
+
+    // Adiciona o produto à tabela
+    adicionarProduto(nome, quantidade, codigos, localidade);
+
+    // Salva o produto no LocalStorage
+    salvarProduto(nome, quantidade, codigos, localidade);
+
+    // Limpa o formulário
+    event.target.reset();
+
+    // Remove produtos com quantidade zero
+    removerProdutosZerados();
+  });
+
+function adicionarProduto(nome, quantidade, codigos, localidade) {
+  const tabela = document.getElementById("estoque-tabela");
+
+  // Cria uma nova linha na tabela
+  const novaLinha = document.createElement("tr");
+
+  novaLinha.innerHTML = `
+        <td>${nome}</td>
+        <td>${quantidade}</td>
+        <td>${codigos}</td>
+        <td>${localidade}</td>
+        <td>
+            <button class="remover">Remover</button>
+        </td>
+    `;
+
+  // Adiciona a linha na tabela
+  tabela.appendChild(novaLinha);
+
+  // Adiciona evento de remoção
+  novaLinha.querySelector(".remover").addEventListener("click", function () {
+    novaLinha.remove();
+    removerProdutoDoLocalStorage(nome);
+  });
+}
+
+function removerProdutosZerados() {
+  const linhas = document.querySelectorAll("#estoque-tabela tr");
+
+  linhas.forEach((linha) => {
+    const quantidade = parseInt(linha.children[1].textContent, 10);
+
+    if (quantidade === 0) {
+      const nome = linha.children[0].textContent;
+      linha.remove();
+      removerProdutoDoLocalStorage(nome);
+    }
+  });
+}
+
+// Funções para manipular o LocalStorage
+function salvarProduto(nome, quantidade, codigos, localidade) {
+  const produtos = JSON.parse(localStorage.getItem("estoque")) || [];
+  produtos.push({ nome, quantidade, codigos, localidade });
+  localStorage.setItem("estoque", JSON.stringify(produtos));
+}
+
+function carregarProdutos() {
+  const produtos = JSON.parse(localStorage.getItem("estoque")) || [];
+
+  produtos.forEach((produto) => {
+    adicionarProduto(
+      produto.nome,
+      produto.quantidade,
+      produto.codigos,
+      produto.localidade
+    );
+  });
+}
+
+function removerProdutoDoLocalStorage(nome) {
+  const produtos = JSON.parse(localStorage.getItem("estoque")) || [];
+  const produtosAtualizados = produtos.filter(
+    (produto) => produto.nome !== nome
+  );
+  localStorage.setItem("estoque", JSON.stringify(produtosAtualizados));
+}
