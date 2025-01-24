@@ -1,44 +1,80 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    color: #333;
 }
 
+/* Cabeçalho */
 header {
-    background-color: #519de4;
-    color: white;
-    padding: 10px;
+    background-color: #cc1800;
+    color: #fff;
     text-align: center;
+    padding: 20px 0;
 }
 
-section {
-    margin: 20px;
+header h1 {
+    font-size: 36px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+/* Seção das impressoras */
+#impressoras {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Cartões das impressoras */
+.impressora {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.impressora h2 {
+    font-size: 24px;
+    color: #0044cc;
+}
+
+.impressora p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Status da impressora */
+.status {
+    font-weight: bold;
+    color: green;
+}
+
+/* Quando o status for 'Inativa' */
+.status.inativa {
+    color: rgba(255, 0, 0, 0.938); /* Vermelho com opacidade */
+}
+
+
+/* Nível de toner */
+.toner-status {
+    font-weight: bold;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #cc0700;
+    color: white;
     margin-top: 20px;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
 }
