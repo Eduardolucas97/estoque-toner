@@ -3,47 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Estoque</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Monitoramento de Impressoras</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Gestão de Estoque</h1>
+        <h1>Monitoramento de Impressoras</h1>
     </header>
+    
+    <section id="impressoras">
+        <!-- Impressora 1 -->
+        <div class="impressora" id="impressora-1">
+            <h2>SAMSUNG 4080</h2>
+            <p><strong>Status:</strong> <span class="status">Ativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">345</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">80%</span></p>
+        </div>
 
-    <section class="estoque">
-        <h2>Estoque Atual</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome do Produto</th>
-                    <th>Quantidade</th>
-                    <th>Equipamentos Compatíveis</th>
-                    <th>Localidade</th>
-                    <th>Ações</th>
-                    
-                </tr>
-            </thead>
-            <tbody id="estoque-tabela">
-                <!-- As informações dos produtos serão inseridas aqui via JavaScript -->
-            </tbody>
-        </table>
+        <!-- Impressora 2 -->
+        <div class="impressora" id="impressora-2">
+            <h2>HP 408</h2>
+            <p><strong>Status:</strong> <span class="status inativa">Inativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">120</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">50%</span></p>
+        </div>
+
+        <!-- Impressora 3 -->
+        <div class="impressora" id="impressora-3">
+            <h2>HP 432</h2>
+            <p><strong>Status:</strong> <span class="status">Ativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">500</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">20%</span></p>
+        </div>
+
+        <!-- Impressora 4 -->
+        <div class="impressora" id="impressora-4">
+            <h2>HP 57540</h2>
+            <p><strong>Status:</strong> <span class="status inativa">Inativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">439</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">8%</span></p>
+        </div>
+    
+        <!-- Impressora 5 -->
+        <div class="impressora" id="impressora-5">
+            <h2>HP 52645</h2>
+            <p><strong>Status:</strong> <span class="status">Ativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">260</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">42%</span></p>
+        </div>
+
+        <!-- Impressora 6 -->
+        <div class="impressora" id="impressora-6">
+            <h2>HP 77830</h2>
+            <p><strong>Status:</strong> <span class="status inativa">Inativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">87</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">12%</span></p>
+        </div>
+
+        <!-- Impressora 7 -->
+        <div class="impressora" id="impressora-7">
+            <h2>HP T1600</h2>
+            <p><strong>Status:</strong> <span class="status">Ativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">9</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">99%</span></p>
+        </div>
+
+        <!-- Impressora 8 -->
+        <div class="impressora" id="impressora-8">
+            <h2>HP 78323</h2>
+            <p><strong>Status:</strong> <span class="status inativa">Inativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">14</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">86%</span></p>
+        </div>
+
+        <!-- Impressora 9 -->
+        <div class="impressora" id="impressora-9">
+            <h2>HP 42540</h2>
+            <p><strong>Status:</strong> <span class="status">Ativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">34</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">76%</span></p>
+        </div>
+
+        <!-- Impressora 10 -->
+        <div class="impressora" id="impressora-10">
+            <h2>HP M454</h2>
+            <p><strong>Status:</strong> <span class="status inativa">Inativa</span></p>
+            <p><strong>Impressões realizadas:</strong> <span class="impressao-count">23</span></p>
+            <p><strong>Nível de toner:</strong> <span class="toner-status">98%</span></p>
+        </div>
+
     </section>
 
-    <section class="adicionar-produto">
-        <h2>Adicionar Novo Produto</h2>
-        <form id="form-produto">
-            <label for="nome">Nome do Produto:</label>
-            <input type="text" id="nome" required><br><br>
-            <label for="quantidade">Quantidade:</label>
-            <input type="number" id="quantidade" required><br><br>
-            <label for="codigos">Equipamentos Compatíveis:</label>
-            <input type="text" id="codigos" required><br><br>
-            <label for="localidade">Localidade:</label>
-            <input type="text" id="localidade" required><br><br>
-            <button type="submit">Adicionar Produto</button>
-        </form>
-    </section>
+    <footer>
+        <p>&copy; 2024 Sistema de Monitoramento de Impressoras</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
